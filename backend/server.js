@@ -1,7 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import database from './database/database.js';
 import userRoutes from './routes/UserRoutes.js';
+import loginRoutes from './routes/LoginRoutes.js'
+
 
 dotenv.config();
 
@@ -9,11 +10,12 @@ dotenv.config();
 //Configuramos express
 const app= express();
 
+app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
 //Middleware para archivos json
-app.use(express.json());
+
 
 
 
@@ -27,9 +29,7 @@ app.listen(port, () => {
 });
 
 
-app.use('/', (req, res) => {
-    res.send('Hola mundo')
-})
-app.use("/api/v1/User", userRoutes);
 
+app.use("/api/v1/User", userRoutes);
+app.use("/api/v1/Auth", loginRoutes)
 
