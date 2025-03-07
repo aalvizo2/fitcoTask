@@ -17,6 +17,7 @@ const Navbar: React.FC<LoginProps> = ({ onLogout }) => {
                     const decodedToken: any = jwtDecode(token);
                     console.log('token decodificado', decodedToken)
                     setUsername(decodedToken.Username || "Usuario");
+                    localStorage.setItem('username', username)
                     setEmail(decodedToken.Email || "Sin email");
                 } catch (error) {
                     console.error("Error al decodificar el token:", error);
