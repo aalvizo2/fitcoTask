@@ -5,7 +5,9 @@ import express from 'express';
 const router= express.Router();
 
 router.get("/", taskController.getAllTasks);
-router.post("/", taskController.newTask)
+router.post("/", taskController.newTask);
+router.put("/:id", taskController.editTask);
+router.delete("/:id", taskController.deleteTask);
 
 
 

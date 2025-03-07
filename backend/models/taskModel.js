@@ -27,5 +27,34 @@ export const taskModel = {
                 }
             });
         });
+    },
+
+    editTask: (id, newData) => {
+        return new Promise((resolve, reject) => {
+            const query= 'UPDATE tareas SET titulo=?, descripcion=?, duedate=?, estatus=? WHERE id=?';
+            
+            connection.query(query, [newData.titulo, newData.descripcion, newData.duedate, newData.estatus, id], (err, result) =>{
+                if(err){
+                    reject(err)
+                }else{
+                    resolve(result)
+                }
+            })
+        })
+    },
+    
+    deleteTask: (id) => {
+        return new Promise((resolve, reject) => {
+            const query= 'DELETE FROM tareas WHERE id=?';
+
+            connection.query(query, id, (err, result)=> {
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(result);
+                }
+            })
+        })
     }
+
 };
