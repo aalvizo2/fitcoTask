@@ -27,7 +27,7 @@ const AuthController = {
                         expiresIn: '1h'
                     }
                 )
-                    res.status(200).json(token);
+                    res.status(200).json({token: token});
                 }else{
                     res.status(401).send({Message: 'Error de autenticación'})
                 }

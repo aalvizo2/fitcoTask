@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import userRoutes from './routes/UserRoutes.js';
 import loginRoutes from './routes/LoginRoutes.js'
-
+import taskRoutes from './routes/taskRoutes.js';
 
 dotenv.config();
 
@@ -31,5 +31,6 @@ app.listen(port, () => {
 
 
 app.use("/api/v1/User", userRoutes);
-app.use("/api/v1/Auth", loginRoutes)
+app.use("/api/v1/Auth", loginRoutes);
+app.use("/api/v1/Task", taskRoutes)
 
