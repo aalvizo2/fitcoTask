@@ -31,8 +31,9 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
             onLogin(newData.Username)
 
-        }catch(error){
-            console.error("Error de autenticación", error)
+        }catch(error: any){
+            console.error("Error de autenticación", error);
+            setError(error.message)
         }
     }
     

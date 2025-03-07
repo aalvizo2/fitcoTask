@@ -4,7 +4,9 @@ export const taskController = {
     getAllTasks: async (req, res) => {
         try {
             
-            const {username, page = 1 } = req.body; // page es opcional, por defecto es 1
+            const {username, page}= req.params;
+            
+            
             const limit = 30; // Número de registros por página
 
             // Validar que se proporcionó un nombre de usuario
