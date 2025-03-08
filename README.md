@@ -10,7 +10,7 @@ Este es un proyecto de gestión de tareas utilizando una arquitectura **fullstac
 2. **Ver todas las tareas**: Los usuarios pueden consultar todas las tareas almacenadas en la base de datos.
 3. **Actualizar tarea**: Los usuarios pueden modificar una tarea existente.
 4. **Eliminar tarea**: Los usuarios pueden eliminar una tarea.
-5. **Filtrar tarea**: Los usuarios pueden filtrar por tareas
+
    
 
 ## Tecnologías utilizadas
@@ -23,10 +23,8 @@ Este es un proyecto de gestión de tareas utilizando una arquitectura **fullstac
   - Node.js
   - Express
   - Mysql
-  - Jest + Supertest (para pruebas)
 - **Otros**:
-  - Babel
-  - Webpack
+
   - CORS
 
 ## Instalación
