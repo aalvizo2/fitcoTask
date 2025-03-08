@@ -15,7 +15,12 @@ const AuthController = {
         try {
             // Buscar al usuario en la base de datos
             AuthModel.findUserByUsername(Username, async (err, user) => {
+                console.log(user)
                 const isMatch= await bcrypt.compare(Password, user.password);
+                
+                if(!isMatch){
+                    res.status(401).send({Message: "Credenciales incorrectas"});
+                }
 
                 if(isMatch){
                     const token= jwt.sign({

@@ -125,7 +125,7 @@ export const EditModal: React.FC<EditTaskProps> = ({ open, onCancel, onSubmit, d
         form.validateFields().then(values => {
             onSubmit({
                 ...values,
-                ...datoFila
+                id: datoFila?.id
             });
             onCancel();
         });

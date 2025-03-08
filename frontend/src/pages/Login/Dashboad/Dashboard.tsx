@@ -15,6 +15,7 @@ const Dashboard: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [modal, setModal] = useState(false);
     const [datoFila, setDatoFila] = useState<string[] | null>(null);
+    const [editModal, setEditModal]= useState(false);
 
 
     const handleAddModal = () => {
@@ -23,7 +24,7 @@ const Dashboard: React.FC = () => {
 
     const handleOpenEditModal= (record: any) => {
         setDatoFila(record);
-        setModal(true);
+        setEditModal(true);
     }
 
     const fetchUsername = () => {
@@ -101,7 +102,7 @@ const Dashboard: React.FC = () => {
             fetchData(username);
 
         }catch(error){
-            console.error('error al eliminar', error)
+            console.error('error al eliminar')
 
         }
     }
@@ -120,6 +121,7 @@ const Dashboard: React.FC = () => {
                         <h3 className="task-title">{item.titulo}</h3>
                         <p className="task-description">{item.descripcion}</p>
                         <span className="task-duedate">{item.duedate}</span>
+                        <p><input type="checkbox" checked={item.estatus} readOnly /></p>
                         <div className="task-actions">
                             <button
                                 onClick={() => handleOpenEditModal(item)}
@@ -162,8 +164,8 @@ const Dashboard: React.FC = () => {
             />
 
             <EditModal
-                open={modal}
-                onCancel={() => setModal(false)}
+                open={editModal}
+                onCancel={() => setEditModal(false)}
                 datoFila={datoFila}
                 onSubmit={handleEditTask}
             />
